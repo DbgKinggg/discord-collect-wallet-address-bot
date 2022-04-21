@@ -29,7 +29,7 @@ module.exports = {
 
     // find if the userId exists
     Address.findOne(
-      { userId: userId },
+      { "user.id": userId },
       "address userId",
       async (err, address) => {
         if (err) throw new Error("Cannot find record");
@@ -57,7 +57,11 @@ module.exports = {
 
         await new Address({
           address: enteredAddress,
-          userId: userId,
+          user: {
+            id: userId,
+            name: interaction.user.username || "",
+            discriminator: interaction.user.discriminator || "",
+          },
         }).save();
 
         return replyInteraction(

@@ -5,9 +5,19 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userId: {
-    type: Number,
-    required: true,
+  user: {
+    id: {
+      type: Number,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    discriminator: {
+      type: Number,
+      required: true,
+    },
   },
 });
 

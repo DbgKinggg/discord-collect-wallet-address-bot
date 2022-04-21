@@ -14,13 +14,13 @@ module.exports = {
 
     // find if the userId exists
     Address.findOne(
-      { userId: userId },
+      { "user.id": userId },
       "address userId",
       async (err, address) => {
         if (err) throw new Error("Cannot find record");
 
         // if existed show the address
-        if (address.address) {
+        if (address && address.address) {
           interaction.reply({
             content: `${address.address}`,
             ephemeral: true,
