@@ -1,0 +1,10 @@
+[
+  {
+    "address": "0xxxxx",
+    "user": {
+      "id": "123",
+      "name": "test",
+      "discriminator": "6666"
+    }
+  }
+]

@@ -52,6 +52,17 @@ Permission:
 
 除此之外，你还需要在[MongoDB](https://www.mongodb.com/)创建一个数据库（他们有免费的选项！），创建成功后可以获取连接 URL。
 
+### 把已经有的地址保存在数据库
+
+如果你已经有提交过的地址想提前保存在数据库，你可以使用以下指令。
+你需要先新建一个`seed.json`文件（文件格式可以参考`seed.example.json`），如果你需要验证数据是否正确（地址是否合法/去重），您可以运行指令 `node seed.json validate`。
+
+接下来你只需要运行 `node seed.json seed` 即可保存数据进数据库
+
 ### 运行你的机器人
 
 先运行指令 `npm install` 来安装机器人需要的包，之后只需要运行指令 `npm index.js` 即可。指令会自动在 Discord 注册。之后只需要回到 Discord 测试指令即可
+
+### 部署你的机器人
+
+要部署你的机器人你需要找到合适的服务器/vps，我建议你使用类似 pm2 之类的软件来管理你的 node.js 进程

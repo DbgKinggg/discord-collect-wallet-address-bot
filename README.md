@@ -4,7 +4,7 @@
 
 ## ❓ What is this?
 
-This is a Discord bot that is built to collect wallet address without disclosing your address to other members, with the following commands:
+This is a Discord bot that is built to collect wallet address without disclosing your address to other members, with the following Discord commands:
 
 - `/address` show the current submitted address
 - `/submit <address>` submit/replace wallet address in the database
@@ -52,6 +52,18 @@ You will need to clone this repo to your local first, and then create a `.env` f
 
 You will also need to create your [MongoDB](https://www.mongodb.com/) database (they have a free tier!) and obtain the connection url.
 
+### Seed your database
+
+Before running your bot, you might want to seed your already submitted wallet address data, if this is not something you need you may skip to the nest section.
+We have created a `seed.js` and `seed.example.json` file, and the javascript will read from a file called `seed.json` to validate and seed the database. You will have to create a `seed.json` file first, and put in your collected data.
+
+To validate the data in `seed.json` is valid (if the addresses are valid/if there is any duplicate), you may run: `node seed.js validate`
+To seed the database, please run `node seed.js seed`
+
 ### Run the application
 
 To run the application, you will need to `npm install` first and then run `node index.js` to start the bot, and the commands will be registered automatically on the discord server. Go test it out!
+
+### Deploy to production
+
+If might want to find a good server/vps to host your bot, I recommend using something like pm2 to manage your node.js app.
